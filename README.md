@@ -68,6 +68,8 @@ env\Scripts\activate  # For Windows
 
 pip install -r requirements.txt
 
+python download_checkpoint.py # loads checkpoint folder in project directory
+
 gunicorn --bind 0.0.0.0:5000 app:app
 ```
 
