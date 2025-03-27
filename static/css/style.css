@@ -1,0 +1,241 @@
+/* Basic styles */
+:root {
+  --primary: #3b82f6;
+  --dark: #1e40af;
+  --light: #f3f4f6;
+  --text: #333333;
+  --error: #ef4444;
+  --success: #10b981;
+  --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Form elements */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input[type="file"] {
+  padding: 10px;
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius);
+  background-color: #f8fafc;
+  cursor: pointer;
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background-color: var(--dark);
+}
+
+/* Loading spinner */
+.loading {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Image and results */
+.image-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#imagePreview {
+  max-width: 100%;
+  border-radius: var(--radius);
+  display: none;
+}
+
+#boundingBoxes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.box {
+  position: absolute;
+  border: 2px solid var(--primary);
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.box-label {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  background-color: var(--primary);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Results */
+.result-item {
+  background-color: #f8fafc;
+  border-left: 3px solid var(--success);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.date-text {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.confidence {
+  color: #666;
+  font-size: 14px;
+}
+
+.low-confidence {
+  color: var(--error);
+}
+
+/* Analysis section */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.analysis-box {
+  background-color: #f8fafc;
+  padding: 15px;
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary);
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.text-content {
+  font-family: monospace;
+  white-space: pre-wrap;
+  margin-top: 10px;
+}
+
+/* Error message */
+.error {
+  background-color: #fee2e2;
+  border-left: 3px solid var(--error);
+  padding: 15px;
+  color: var(--error);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Expiration Status Styling */
+.expiry-box {
+    margin-top: 1rem;
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+}
+
+.expiry-status {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.expired {
+    color: #e53935;
+    font-weight: bold;
+    background-color: rgba(229, 57, 53, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.not-expired {
+    color: #43a047;
+    font-weight: bold;
+    background-color: rgba(67, 160, 71, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Date Format Info */
+.date-format-info {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    background-color: #f5f5f5;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .analysis-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .full-width {
+    grid-column: span 1;
+  }
+}

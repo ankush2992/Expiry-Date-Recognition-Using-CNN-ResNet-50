@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expiration Date Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Expiration Date Detector</h1>
+            <p>Upload product images to detect expiration dates using AI</p>
+        </header>
+
+        <main>
+            <!-- Upload  -->
+            <section class="card" id="upload-section">
+                <h2>Upload Image</h2>
+                <form id="uploadForm">
+                    <div class="file-input-container">
+                        <input type="file" id="imageInput" accept="image/*" required>
+                    </div>
+                    <button type="submit" id="detectButton">Detect Dates</button>
+                </form>
+            </section>
+
+            <!-- Loading  -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Processing image...</p>
+            </div>
+
+            <!-- Results  -->
+            <section class="card" id="results-section">
+                <div class="image-container">
+                    <img id="imagePreview" alt="Preview">
+                    <div id="boundingBoxes"></div>
+                </div>
+                <div id="results"></div>
+            </section>
+
+            <!-- Analysis  -->
+            <section class="card" id="analysis-section">
+                <h2>Text Analysis</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-box">
+                        <h3>Original Text</h3>
+                        <div id="originalText" class="text-content"></div>
+                    </div>
+                    <div class="analysis-box">
+                        <h3>Translated Text</h3>
+                        <div id="translatedText" class="text-content"></div>
+                    </div>
+                    <div class="analysis-box full-width expiry-box">
+                        <h3>Expiration Status</h3>
+                        <div id="analysisResult" class="text-content expiry-status"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
